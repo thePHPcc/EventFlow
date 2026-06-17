@@ -1,0 +1,18 @@
+parameters:
+    level: 10
+
+    paths:
+        - src
+        - tests
+
+    bootstrapFiles:
+        - tools/phpunit.phar
+
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    reportAlwaysTrueInLastCondition: true
+    reportPossiblyNonexistentConstantArrayOffset: true
+    reportPossiblyNonexistentGeneralArrayOffset: true
+    treatPhpDocTypesAsCertain: false
+
+includes:
+    - phar://phpstan.phar/conf/bleedingEdge.neon
