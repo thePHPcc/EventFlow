@@ -17,7 +17,7 @@ final readonly class SeatNumber
 {
     public static function fromString(string $value): self
     {
-        if (preg_match('/^([A-Z])([1-9][0-9]*)$/', $value, $matches) !== 1) {
+        if (preg_match('/^([A-Z])([1-9]\d*)$/', $value, $matches) !== 1) {
             throw InvalidSeatNumberException::from($value);
         }
 
