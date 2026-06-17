@@ -61,6 +61,12 @@ Each one catches a different class of mistake, and each one also runs in the CI 
 
 You can run each step on its own with the commands above.
 
+## Refactoring
+
+`composer refactoring` rewrites the code for you, for example to make sure you leverage modern PHP syntax:
+it runs Rector to apply automated refactorings and then PHP-CS-Fixer to fix the coding style of the result.
+Review the changes before committing them.
+
 ## Structure
 
 The code follows a Domain-Driven Design layering.
