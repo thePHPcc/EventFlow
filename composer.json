@@ -1,0 +1,31 @@
+{
+    "name": "thephpcc/ticketing",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Thephpcc\\Ticketing\\": "src/"
+        }
+    },
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.5.7"
+    },
+    "config": {
+        "platform": {
+            "php": "8.5.7"
+        },
+        "policy": {
+            "malware": {
+                "audit": "fail"
+            },
+            "security-advisory": {
+                "audit": "fail"
+            },
+            "abandoned": {
+                "audit": "fail"
+            }
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
