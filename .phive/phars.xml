@@ -3,4 +3,5 @@
   <phar name="phpunit" version="^13.2.1" installed="13.2.1" location="./tools/phpunit" copy="true"/>
   <phar name="phpstan" version="^2.2.2" installed="2.2.2" location="./tools/phpstan" copy="true"/>
   <phar name="php-cs-fixer" version="^3.95.8" installed="3.95.8" location="./tools/php-cs-fixer" copy="true"/>
+  <phar name="infection" version="^0.33.2" installed="0.33.2" location="./tools/infection" copy="true"/>
 </phive>
