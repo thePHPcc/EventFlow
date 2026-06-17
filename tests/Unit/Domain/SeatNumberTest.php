@@ -2,6 +2,7 @@
 namespace Thephpcc\Ticketing\Domain;
 
 use function sprintf;
+use Iterator;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -11,21 +12,27 @@ use PHPUnit\Framework\TestCase;
 final class SeatNumberTest extends TestCase
 {
     /**
-     * @return array<string, array{string}>
+     * @return Iterator<string, array{string}>
      */
-    public static function invalidValues(): array
+    public static function invalidValues(): Iterator
     {
-        return [
-            'empty string'             => [''],
-            'lowercase row'            => ['a12'],
-            'missing position'         => ['A'],
-            'missing row'              => ['12'],
-            'zero position'            => ['A0'],
-            'leading zero in position' => ['A01'],
-            'more than one row letter' => ['AB12'],
-            'leading whitespace'       => [' A12'],
-            'trailing characters'      => ['A12X'],
-        ];
+        yield 'empty string' => [''];
+
+        yield 'lowercase row' => ['a12'];
+
+        yield 'missing position' => ['A'];
+
+        yield 'missing row' => ['12'];
+
+        yield 'zero position' => ['A0'];
+
+        yield 'leading zero in position' => ['A01'];
+
+        yield 'more than one row letter' => ['AB12'];
+
+        yield 'leading whitespace' => [' A12'];
+
+        yield 'trailing characters' => ['A12X'];
     }
 
     public function testCanBeCreatedFromItsStringRepresentation(): void
