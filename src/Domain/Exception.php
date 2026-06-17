@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace Thephpcc\Ticketing\Domain;
+namespace Thephpcc\EventFlow\Domain;
 
 use Throwable;
 
