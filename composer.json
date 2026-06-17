@@ -10,6 +10,28 @@
     "require": {
         "php": ">=8.5.7"
     },
+    "scripts": {
+        "ci": [
+            "@coding-standard",
+            "@static-analysis",
+            "@architecture",
+            "@tests",
+            "@mutation-testing"
+        ],
+        "coding-standard": "@php tools/php-cs-fixer fix --dry-run --diff",
+        "static-analysis": "@php tools/phpstan analyse",
+        "architecture": "@php tools/deptrac analyse --no-progress",
+        "tests": "@php tools/phpunit --compact",
+        "mutation-testing": "@php tools/infection"
+    },
+    "scripts-descriptions": {
+        "ci": "Runs the complete quality gate (the same checks the CI pipeline runs)",
+        "coding-standard": "Checks the coding standard with PHP CS Fixer",
+        "static-analysis": "Runs static analysis with PHPStan",
+        "architecture": "Verifies the architecture rules with Deptrac",
+        "tests": "Runs the test suite with PHPUnit",
+        "mutation-testing": "Runs mutation testing with Infection"
+    },
     "config": {
         "platform": {
             "php": "8.5.7"
