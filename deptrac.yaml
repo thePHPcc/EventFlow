@@ -1,0 +1,33 @@
+deptrac:
+  paths:
+    - ./src
+
+  layers:
+    - name: Domain
+      collectors:
+        - type: directory
+          value: src/Domain/.*
+
+    - name: Application
+      collectors:
+        - type: directory
+          value: src/Application/.*
+
+    - name: Infrastructure
+      collectors:
+        - type: directory
+          value: src/Infrastructure/.*
+
+  ruleset:
+    # The Domain layer is the heart of the system and must not depend on any
+    # other layer. In particular, it must never reach into Infrastructure.
+    Domain: ~
+
+    # The Application layer orchestrates the Domain.
+    Application:
+      - Domain
+
+    # Only the Infrastructure layer is allowed to know about everything.
+    Infrastructure:
+      - Domain
+      - Application
