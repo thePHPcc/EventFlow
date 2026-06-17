@@ -18,6 +18,10 @@
             "@tests",
             "@mutation-testing"
         ],
+        "refactoring": [
+            "@php tools/rector",
+            "@php tools/php-cs-fixer fix"
+        ],
         "coding-standard": "@php tools/php-cs-fixer fix --dry-run --diff",
         "static-analysis": "@php tools/phpstan analyse",
         "architecture": "@php tools/deptrac analyse --no-progress",
@@ -26,6 +30,7 @@
     },
     "scripts-descriptions": {
         "ci": "Runs the complete quality gate (the same checks the CI pipeline runs)",
+        "refactoring": "Refactors the code with Rector and then fixes the coding standard with PHP CS Fixer",
         "coding-standard": "Checks the coding standard with PHP CS Fixer",
         "static-analysis": "Runs static analysis with PHPStan",
         "architecture": "Verifies the architecture rules with Deptrac",
