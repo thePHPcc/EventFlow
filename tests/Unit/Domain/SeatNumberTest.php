@@ -45,7 +45,7 @@ final class SeatNumberTest extends TestCase
     public function testCannotBeCreatedFromAnInvalidStringRepresentation(string $value): void
     {
         $this->expectException(InvalidSeatNumberException::class);
-        $this->expectExceptionMessage(sprintf('"%s" is not a valid seat number', $value));
+        $this->expectExceptionMessageIs(sprintf('"%s" is not a valid seat number', $value));
 
         SeatNumber::fromString($value);
     }
