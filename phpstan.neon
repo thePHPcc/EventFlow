@@ -5,6 +5,14 @@ parameters:
         - src
         - tests
 
+    # The Money (and Currency) class is only created during Step 1 of the
+    # workshop. The following files already reference it to provide the
+    # infrastructure for later steps, so they are excluded until then.
+    excludePaths:
+        - src/Domain/PaymentGateway.php
+        - src/Infrastructure/InMemoryPaymentGateway.php
+        - tests/Integration/InMemoryPaymentGatewayTest.php
+
     bootstrapFiles:
         - tools/phpunit.phar
 

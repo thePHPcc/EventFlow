@@ -17,6 +17,13 @@
 
         <testsuite name="Integration">
             <directory>tests/Integration</directory>
+
+            <!--
+                The Money (and Currency) class is only created during Step 1 of
+                the workshop. This test already references it to provide the
+                infrastructure for later steps, so it is excluded until then.
+            -->
+            <exclude>tests/Integration/InMemoryPaymentGatewayTest.php</exclude>
         </testsuite>
     </testsuites>
 
