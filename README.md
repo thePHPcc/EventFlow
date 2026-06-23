@@ -91,15 +91,22 @@ In particular, it must never reach into `Infrastructure`.
 
 ```
 src/
-├── Domain/          # Entities, value objects, aggregates, domain services
-│   └── SeatNumber   # Fully implemented reference value object
-├── Application/     # Use cases that orchestrate the domain
-└── Infrastructure/  # Adapters to the outside world (persistence, payment, ...)
+├── Domain/                    # Entities, value objects, aggregates, domain services
+│   ├── SeatNumber             # Fully implemented reference value object
+│   ├── DomainEvent            # Marker interface for domain events
+│   ├── RecordsDomainEvents    # Trait for aggregates that record domain events
+│   ├── PaymentGateway         # Port for processing payments
+│   ├── PaymentResult          # Outcome of a payment attempt
+│   ├── Exception              # Marker interface for domain exceptions
+│   └── InvalidSeatNumberException
+├── Application/               # Use cases that orchestrate the domain
+└── Infrastructure/            # Adapters to the outside world (persistence, payment, ...)
+    └── InMemoryPaymentGateway # In-memory fake implementing the PaymentGateway port
 
 tests/
-├── Unit/            # Fast, isolated tests for the domain and application
-├── Integration/     # Tests that exercise infrastructure adapters
-└── Architecture/    # Additional architecture tests, if any
+├── Unit/                      # Fast, isolated tests for the domain and application
+├── Integration/               # Tests that exercise infrastructure adapters
+└── Architecture/              # Additional architecture tests, if any
 ```
 
 ### The reference value object
