@@ -1,9 +1,9 @@
 {
-    "name": "thephpcc/ticketing",
+    "name": "thephpcc/eventflow",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Thephpcc\\Ticketing\\": "src/"
+            "Thephpcc\\EventFlow\\": "src/"
         }
     },
     "prefer-stable": true,
