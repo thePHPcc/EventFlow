@@ -15,6 +15,9 @@ use function preg_match;
  */
 final readonly class SeatNumber
 {
+    /**
+     * @throws InvalidSeatNumberException
+     */
     public static function fromString(string $value): self
     {
         if (preg_match('/^([A-Z])([1-9]\d*)$/', $value, $matches) !== 1) {
