@@ -61,6 +61,15 @@ podman run --rm -v "$PWD":/app:Z eventflow-ci
 The container generates the autoloader and runs `composer ci` for you, so a green run means you are ready for the workshop.
 Replace `podman` with `docker` if you prefer; on systems without SELinux you can drop the `:Z` suffix from the volume mount.
 
+Any other composer script can be run instead of `ci` by passing its name on the command line:
+
+```bash
+podman run --rm -v "$PWD":/app:Z eventflow-ci refactoring
+podman run --rm -v "$PWD":/app:Z eventflow-ci tests
+```
+
+Note that `refactoring` modifies the files in your mounted working copy.
+
 ### The quality gate
 
 `composer ci` runs every feedback loop in order.

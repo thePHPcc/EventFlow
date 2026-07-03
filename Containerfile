@@ -33,5 +33,12 @@ WORKDIR /app
 
 # The project is mounted into /app at run time. We make sure the autoloader is
 # generated (this needs no network, as all tools are committed PHARs) and then
-# run the complete quality gate.
-CMD ["sh", "-c", "php tools/composer install --no-interaction --no-progress && php tools/composer ci"]
+# run the requested composer script. Without arguments the complete quality
+# gate ("ci") runs; any other script can be passed on the command line:
+#
+#   podman run --rm -v "$PWD":/app:Z eventflow-ci refactoring
+#
+# The "--" placeholder becomes $0 of the shell so that the arguments appended
+# by CMD (or the command line) land in "$@" unchanged.
+ENTRYPOINT ["sh", "-c", "php tools/composer install --no-interaction --no-progress && exec php tools/composer \"$@\"", "--"]
+CMD ["ci"]
